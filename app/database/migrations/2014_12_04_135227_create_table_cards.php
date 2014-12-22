@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration {
+class CreateTableCards extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,16 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function(Blueprint $table)
+		Schema::create('cards', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('username')->unique();
-			$table->string('password');
+			$table->string('image');
+			$table->integer("fk_adressid")->unsigned();
+			$table->foreign("fk_adressid")
+						->references("id")
+						->on("adress")
+						->onUpdate("cascade")
+						->onDelete("restrict");
 			$table->timestamps();
 		});
 	}
@@ -28,7 +33,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
+		Schema::drop('cards');
 	}
 
 }

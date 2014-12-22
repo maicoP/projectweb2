@@ -34,6 +34,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public function profiles()
+    {
+        return $this->hasMany('Profile');
+    }
+	
 	public function isValid()// methode 1 isValid($data)
 	{	
 		// methode 1
@@ -46,5 +51,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$this->errors =$validation->messages();
 		return false;
 	}
+
+
 
 }

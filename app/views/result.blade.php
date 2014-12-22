@@ -5,6 +5,8 @@
 	<title>Test</title>
 </head>
 <body>
-	<h1> About Page</h1>
+	<h1>Result</h1>
+	<img src="/images/{{$img}}" alt="">
+	
 </body>
 </html>
