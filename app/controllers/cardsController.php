@@ -7,9 +7,10 @@ class cardsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function __construct(Card $card)
+	public function __construct(Card $card, Adres $adres)
 	{
 		$this->card = $card;
+		$this->adres = $adres;
 
 	}
 
@@ -37,7 +38,16 @@ class cardsController extends \BaseController {
 	 */
 	public function store()
 	{
+		$this->card->fill(Input::all());
 
+		$this->adres->fill(Input::all());
+		$this->adres->save();
+		$adresId = $this->adres->id;
+
+		$this->card->fk_adressid= $adresId;
+		$this->card->save();
+
+		return View::make('confirmation',['reciever' =>Input::get('reciever'),'images' => Input::get('image')]);
 	}
 
 
@@ -100,9 +110,9 @@ class cardsController extends \BaseController {
 			if(Input::hasFile('image'))
 			{
 			
-				$filename = substr_replace(Input::file('image')->getClientOriginalName(),".png",-4);
-				$image = Image::make(Input::file('image')->getRealPath())->heighten(300);
-				$image->crop(300,300);
+				$filename = str_random(10).substr_replace(Input::file('image')->getClientOriginalName(),".png",-4);
+				$image = Image::make(Input::file('image')->getRealPath())->heighten(400);
+				$image->crop(400,400);
 				$destenation = 'images/'.$filename;
 				$image->save($destenation);		
 			}
@@ -116,14 +126,47 @@ class cardsController extends \BaseController {
 
 	public function editTempImage()
 	{
+			$size = 0;
+			switch (Input::get('font')) {
+				case 'AlwaysInMyHeart.ttf':
+					$size = 24 ;
+					break;
+				case 'Anothershabby_trial.ttf':
+					$size = 17 ;
+					break;
+				case 'ArchitectsDaughter.ttf':
+					$size = 14 ;
+					break;
+				case 'AustieBostHappyHolly.ttf':
+					$size = 24 ;
+					break;
+				case 'CoalhandLukeTRIAL.ttf':
+					$size = 18 ;
+					break;			
+				case 'Pleasewritemeasong.ttf':
+					$size = 24 ;
+					break;
+				default:
+					$size = 24;
+					break;
+			}
 			$img = Image::make('images/'.Input::get('image'));
-			$img->rectangle(0, 210, 300, 300, function ($draw) {
-			    $draw->background('#D4AF37');
+			$img->rectangle(0, 290, 400, 400, function ($draw) {
+			    $draw->background(Input::get('background'));
 			});
-			$img->text(Input::get('message'), 150, 220, function($font) {
-		    $font->file('fonts/AlwaysInMyHeart.ttf');
-		    $font->size(25);
-		    $font->color('#D3D3D3');
+			$img->text(Input::get('message'), 200, 300, function($font) use ($size) {
+		    $font->file('fonts/'.Input::get('font'));
+		    $font->size($size);
+		    $font->color(Input::get('color'));
+		    $font->align('center');
+		    $font->valign('top');
+		    $font->angle(0);
+			});
+
+			$img->text('Van '.Input::get('afzender'), 200, 330, function($font) use ($size) {
+		    $font->file('fonts/'.Input::get('font'));
+		    $font->size($size);
+		    $font->color(Input::get('color'));
 		    $font->align('center');
 		    $font->valign('top');
 		    $font->angle(0);
@@ -145,8 +188,8 @@ class cardsController extends \BaseController {
 			$height = imagesy($image_s);
 
 
-			$newwidth = 300;
-			$newheight = 300;
+			$newwidth = 400;
+			$newheight = 400;
 
 			$image = imagecreatetruecolor($newwidth, $newheight);
 			imagealphablending($image,true);
@@ -173,7 +216,7 @@ class cardsController extends \BaseController {
 			imagefill($image,0,0, $red);
 			imagepng($image, $filename);
 
-			return View::make('result',['img' => Input::get('image')]);
+			return View::make('result',['img' => Input::get('image'),'afzender' => Input::get('afzender')]);
 	}
 
 

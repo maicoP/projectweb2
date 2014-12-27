@@ -2,7 +2,7 @@
 
 class Card extends Eloquent {
 
-	protected $fillable =['image','fk_adressid'];
+	protected $fillable =['image','sender','fk_adressid'];
 
 
 	public static $rules=[

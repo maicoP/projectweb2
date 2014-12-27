@@ -16,6 +16,8 @@ class CreateTableCards extends Migration {
 		{
 			$table->increments('id');
 			$table->string('image');
+			$table->string('sender');
+			$table->string('receiver');
 			$table->integer("fk_adressid")->unsigned();
 			$table->foreign("fk_adressid")
 						->references("id")

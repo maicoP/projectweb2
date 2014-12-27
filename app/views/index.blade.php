@@ -18,8 +18,8 @@
 			{{Form::label('Afbeelding')}}
 			{{Form::File('image')}}		
 		</div>
-		<a href="facebook/create">Take a picture from facebook</a>
 		{{Form::submit()}}
+		<a href="facebook/create">Take a picture from facebook</a>
 	</section>
 
 </body>
