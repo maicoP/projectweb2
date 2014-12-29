@@ -8,7 +8,7 @@
 	</div>
 	<section>
 		<div class="createimg">
-		<a href="#">{{ HTML::image('css/img/createbutton.png') }}</a>
+		{{ HTML::image('css/img/createbutton.png') }}
 		</div>
 		<div class="chooseimg">
 		{{ HTML::image('css/img/chooseimage.png') }}
