@@ -109,27 +109,39 @@ class cardsController extends \BaseController {
 		{
 			if(Input::hasFile('image'))
 			{
-				$dimensions = getimagesize(Input::file('image'));
-				$with = $dimensions[0];
-				$height = $dimensions[1];
-				$filename = str_random(10).substr_replace(Input::file('image')->getClientOriginalName(),".png",-4);
-				if($with > $height)
-				{
-					$image = Image::make(Input::file('image')->getRealPath())->heighten(400);
-				}else{
-					$image = Image::make(Input::file('image')->getRealPath())->widen(400);
-				}
-				
-				$image->crop(400,400);
-				$destenation = 'images/'.$filename;
-				$image->save($destenation);		
+				$filename = $this->saveImage(Input::file('image'),'form');
+				return View::make('editImage',['img' => $filename]);	
 			}
-			return View::make('editImage',['img' => $filename]);
 		}
 		else
 		{
 			return Redirect::back()->withInput()->withErrors($this->card->errors);
 		}
+	}
+
+	public function saveFacebookImage(){
+		$img = Input::get('imageURL');
+		$filename = $this->saveImage($img,'facebook');
+		return View::make('editImage',['img' => $filename]);
+	}
+
+	public function saveImage($img,$type){
+		$dimensions = getimagesize($img);
+		$with = $dimensions[0];
+		$height = $dimensions[1];
+		$filename = str_random(15).".png";
+		if($with > $height)
+		{
+			$image =($type == 'facebook' ? Image::make($img)->heighten(400) : Image::make($img->getRealPath())->heighten(400));
+			$image->crop(400,400);
+		}else{
+			$image =($type == 'facebook' ? Image::make($img)->widen(400) : Image::make($img->getRealPath())->widen(400));
+			$image->crop(400,400,0,50);
+		}
+		$destenation = 'images/'.$filename;
+		$image->save($destenation);	
+		return $filename;
+			
 	}
 
 	public function editTempImage()

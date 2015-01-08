@@ -253,3 +253,11 @@ input[type="submit"] {
 .footer{
   text-align:center;
 }
+.fbImage{
+  margin:10px;
+  float:left;
+}
+.fbImage > img{
+  width: 300px;
+  
+}

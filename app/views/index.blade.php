@@ -37,7 +37,7 @@
 			{{ HTML::image('css/img/or.png')}}
 		</div>
 		<h1>Use Facebook</h1>
-		<a href="facebook/create">{{ HTML::image('css/img/fblogo.png') }}</a>
+		<a href="/facebook/images">{{ HTML::image('css/img/fblogo.png') }}</a>
 		</div>
 	</section>
 @stop
