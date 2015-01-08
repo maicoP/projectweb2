@@ -52,55 +52,38 @@ class facebookController extends \BaseController {
 	public function store()
 	{
 		$code = Input::get('code');
-	    if (strlen($code) == 0) return Redirect::to('/')->with('message', 'There was an error communicating with Facebook');
+		if (strlen($code) == 0) return Redirect::to('/')->with('message', 'There was an error communicating with Facebook');
 
-	    $facebook = new Facebook(Config::get('facebook'));
-	    $uid = $facebook->getUser();
+		$facebook = new Facebook(Config::get('facebook'));
+		$uid = $facebook->getUser();
 
-	    if ($uid == 0) return Redirect::to('/')->with('message', 'There was an error');
+		if ($uid == 0) return Redirect::to('/')->with('message', 'There was an error');
 
-	    $me = $facebook->api('/me');
+		$me = $facebook->api('/me');
 
-	    $profile = Profile::whereUid($uid)->first();
-	    if (empty($profile)) {
+		$profile = Profile::whereUid($uid)->first();
+		if (empty($profile)) {
 
-	        $user = new User;
-	        $user->name = $me['first_name'].' '.$me['last_name'];
-	        $user->email = $me['email'];
-	        $user->save();
+		    $user = new User;
+		    $user->name = $me['first_name'].' '.$me['last_name'];
+		    $user->email = $me['email'];
 
-	        $profile = new Profile();
-	        $profile->uid = $uid;
-	        return $uid;
-	        $profile->username = $me['name'];
-	        $profile = $user->profiles()->save($profile);
-	    }
+		    $user->save();
 
-	    $profile->access_token = $facebook->getAccessToken();
-	    $profile->save();
-
-	    $user = $profile->user;
-
-	    Auth::login($user);
-	    $fqb = new FQB();
-	    FQB::setAppCredentials('299522950243822',
-	        '5c313f9a2578dbffd2fd95b0e997237e');
-		FQB::setAccessToken('CAACEdEose0cBAPktkDOHvipy6M1MhbIS573O3oZCq3k3p89vGzBZCsNM2N14PbHnB32I2ty5zTfX2fMrmfVmvstO4gHEv8U4FJnfbgDysQkGZCTBc5GORmpfDTJRnlEHh7KLJgjmlgBVz7zmTGnjHR3arjeDa5boCebzggL5r0lKH23yr5tSpMZBlQhNrkEqAWiUZCYKYCmJZCCwZCNatMFoL3kazRSEE8ZD');
-		try
-		{
-		    $user = $fqb->object('me')->get();
-		}
-		catch (FacebookQueryBuilderException $e)
-		{
-		    echo '<p>Error: ' . $e->getMessage() . "\n\n";
-		    echo '<p>Facebook SDK Said: ' . $e->getPrevious()->getMessage() . "\n\n";
-		    echo '<p>Graph Said: ' .  "\n\n";
-		    var_dump($e->getResponse());
-		    exit;
+		    $profile = new Profile();
+		    $profile->uid = $uid;
+		    $profile->username = $me['name'];
+		    $profile = $user->profiles()->save($profile);
 		}
 
-		echo '<h1>Logged In User\'s Profile</h1>' . "\n\n";
-		var_dump($user->toArray());
+		$profile->access_token = $facebook->getAccessToken();
+		$profile->save();
+
+		$user = $profile->user;
+
+		Auth::login($user);
+
+	    return View::make('facebook');
 
 	}
 

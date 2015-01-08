@@ -109,9 +109,17 @@ class cardsController extends \BaseController {
 		{
 			if(Input::hasFile('image'))
 			{
-			
+				$dimensions = getimagesize(Input::file('image'));
+				$with = $dimensions[0];
+				$height = $dimensions[1];
 				$filename = str_random(10).substr_replace(Input::file('image')->getClientOriginalName(),".png",-4);
-				$image = Image::make(Input::file('image')->getRealPath())->heighten(400);
+				if($with > $height)
+				{
+					$image = Image::make(Input::file('image')->getRealPath())->heighten(400);
+				}else{
+					$image = Image::make(Input::file('image')->getRealPath())->widen(400);
+				}
+				
 				$image->crop(400,400);
 				$destenation = 'images/'.$filename;
 				$image->save($destenation);		
