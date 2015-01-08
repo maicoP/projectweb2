@@ -12,9 +12,10 @@ $(document).ready(function(){
 		    console.log('Logged in.');
 		  }
 		  else {
+		  	console.log('not logd in')
 		    FB.login(function(response) {
-			   // handle the response
-			 }, {scope: 'user_photos'});
+			   location.reload();
+			 }, {scope: 'read_friendlists,user_photos'});
 		  }
 		  FB.api(
 			    "/me/photos",
@@ -23,6 +24,10 @@ $(document).ready(function(){
 			      	$.each(response.data,function(i,result){
 			      		$('#facebookImages').append("<div class='fbImage'><img src="+result.images[1].source+" alt='facebook image'></div>")
 			      	});
+			      	console.log(response);
+			      }
+			      else{
+			      	console.log(response.error);
 			      }
 			    }
 			);
