@@ -3,6 +3,13 @@
 	The Ball Of Friendship
 @stop
 @section("content")
+	@if(!Auth::check())
+		{{Link_to("users",'Log in')}}
+	@else
+		<p>Welkom {{Auth::user()->firstname.' '.Auth::user()->lastname}}</p>
+		{{link_to('logout','logout')}}
+	@endif
+	
 	<div class="headerimg">
 	{{ HTML::image('css/img/ballheader.png') }}
 	</div>
@@ -37,7 +44,7 @@
 			{{ HTML::image('css/img/or.png')}}
 		</div>
 		<h1>Use Facebook</h1>
-		<a href="/facebook/images">{{ HTML::image('css/img/fblogo.png') }}</a>
+		<a href="/facebook-images">{{ HTML::image('css/img/fblogo.png') }}</a>
 		</div>
 	</section>
 @stop

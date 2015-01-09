@@ -65,7 +65,8 @@ class facebookController extends \BaseController {
 		if (empty($profile)) {
 
 		    $user = new User;
-		    $user->name = $me['first_name'].' '.$me['last_name'];
+		    $user->firstname = $me['first_name'];
+		    $user->lastname = $me['last_name'];
 		    $user->email = $me['email'];
 
 		    $user->save();
@@ -83,7 +84,7 @@ class facebookController extends \BaseController {
 
 		Auth::login($user);
 
-	    return View::make('facebook');
+	    return Redirect::to('/');
 
 	}
 

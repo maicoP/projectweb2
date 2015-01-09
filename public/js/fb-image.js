@@ -12,9 +12,9 @@ $(document).ready(function(){
 		    console.log('Logged in.');
 		  }
 		  else {
-		  	console.log('not logd in')
 		    FB.login(function(response) {
 			   location.reload();
+			   console.log('new log in')
 			 }, {scope: 'read_friendlists,user_photos'});
 		  }
 		  FB.api(

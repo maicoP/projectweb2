@@ -9,11 +9,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public $timestamps = false;
 
-	protected $fillable =['username','password','email'];
+	protected $fillable =['firstname','lastname','password','email'];
 
 	public static $rules=[
-		'username' => 'required',
-		'password' => 'required'
+		'firstname' => 'required',
+		'lastname' => 'required',
+		'email' => 'unique:users,email',
+		'password' => 'required|min:8'
 	];
 
 	public $errors;
@@ -39,13 +41,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Profile');
     }
 	
-	public function isValid()// methode 1 isValid($data)
+	public function isValid()
 	{	
-		// methode 1
-		//$validation =Validator::make($data,static::$rules);
-		// methode 2
 		$validation =Validator::make($this->attributes,static::$rules);
-
 		if($validation->passes()) return true;
 		
 		$this->errors =$validation->messages();
