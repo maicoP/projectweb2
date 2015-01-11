@@ -17,6 +17,12 @@ $(document).ready(function(){
 			   console.log('new log in')
 			 }, {scope: 'read_friendlists,user_photos'});
 		  }
+		  FB.api('/me', function(me){
+	       if (me.id) {
+		            var facebook_userid = me.id;
+		            console.log(facebook_userid);
+		        }
+		    });
 		  FB.api(
 			    "/me/photos",
 			    function (response) {

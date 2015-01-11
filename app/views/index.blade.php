@@ -7,6 +7,7 @@
 		{{Link_to("users",'Log in')}}
 	@else
 		<p>Welkom {{Auth::user()->firstname.' '.Auth::user()->lastname}}</p>
+		{{link_to_route('cards.index','My balls of friendship')}}
 		{{link_to('logout','logout')}}
 	@endif
 	

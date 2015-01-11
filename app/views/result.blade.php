@@ -16,7 +16,7 @@
 		</div>
 		<div>
 			{{Form::label('ontvanger',"Friend's Name")}}
-			{{Form::text('receiver','',array('required' => 'required','placeholder' => "Full name"))}}
+			{{Form::text('owner','',array('required' => 'required','placeholder' => "Full name"))}}
 		</div>
 		<div>
 			{{Form::label('straatnaam','Street:')}}

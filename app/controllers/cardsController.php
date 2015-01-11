@@ -16,7 +16,8 @@ class cardsController extends \BaseController {
 
 	public function index()
 	{
-		//
+		$cards = Card::where('fk_userid','=',Auth::id())->get();
+		return View::make('users.cards',['cards' => $cards]);
 	}
 
 
@@ -39,15 +40,16 @@ class cardsController extends \BaseController {
 	public function store()
 	{
 		$this->card->fill(Input::all());
+		$this->card->save();
+		$cardId = $this->card->id;
 
 		$this->adres->fill(Input::all());
 		$this->adres->save();
 		$adresId = $this->adres->id;
 
-		$this->card->fk_adressid= $adresId;
-		$this->card->save();
+		$this->card->saveCardAdress($cardId,$adresId);
 
-		return View::make('confirmation',['reciever' =>Input::get('reciever'),'images' => Input::get('image')]);
+		return View::make('confirmation',['reciever' =>Input::get('reciever'),'image' => Input::get('image')]);
 	}
 
 
@@ -59,7 +61,9 @@ class cardsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$card = card::find($id);
+		$adress = $card->adress;
+		return View::make('users.cardDetail',['card' => $card,'adress' =>$adress]);
 	}
 
 
@@ -142,6 +146,40 @@ class cardsController extends \BaseController {
 		$image->save($destenation);	
 		return $filename;
 			
+	}
+
+	public function addAdress()
+	{
+		$this->adres->fill(Input::all());
+		$this->adres->save();
+		$adresId = $this->adres->id;
+
+		$this->card->saveCardAdress(Input::get('cardId'),$adresId);
+		return Redirect::back();
+	}
+	public function saveCard()
+	{
+		if(Auth::check())
+		{
+			$card = Card::where('image','=',Input::get('image'))->first();
+			$card->fk_userid = Auth::id(); 
+			$card->save();
+			return Redirect::to('/');	
+		}
+		else{
+			return Redirect::to('/');
+		}
+		
+	}
+
+	public function returnSavedCards(){
+		if(Auth::check())
+		{
+			
+		}
+		else{
+			return Redirect::to('/');
+		}
 	}
 
 	public function editTempImage()
