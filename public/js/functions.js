@@ -3,6 +3,7 @@ $(document).ready(function(){
         $(".create").fadeIn( "slow" );
         $(".createimg").css("display","none");  
         $(".trigger").css("display","none");  
+        $(".hide").css("display","none");  
         $(".chooseimg").css("display","block");  
     });
     $("#editbgred").click(function(){

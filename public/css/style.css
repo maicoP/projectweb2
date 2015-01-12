@@ -44,6 +44,10 @@ label.myLabel input[type="file"] {
     top: -1000px;
 }
 
+.hide,.trigger{
+  display:inline-block;
+}
+
 .hiddenform{
   display:none;
 }
@@ -282,8 +286,55 @@ input[type="submit"] {
     top:4px;
 }
 
-.btn:hover{
+.btn:hover,.btn a:hover{
   color:#23543A;
+  cursor:pointer;
+}
+
+.btnfb{
+  font-size:110%;
+  position:relative;
+  width: auto;
+  display:inline-block;
+  color:#F8F3CF;
+  text-decoration:none;
+  border-radius:5px;
+  border:solid 1px #294F9B;
+  background:#425F9C;
+  text-align:center;
+  padding:16px 18px 14px;
+  margin: 12px;
+  margin-bottom:20px;
+  
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+  
+  -webkit-box-shadow: 0px 6px 0px #072256;
+  -moz-box-shadow: 0px 6px 0px #072256;
+  box-shadow: 0px 6px 0px #072256;
+}
+
+.btnfb:active{
+    -webkit-box-shadow: 0px 2px 0px #072256;
+    -moz-box-shadow: 0px 2px 0px #072256;
+    box-shadow: 0px 2px 0px #072256;
+    position:relative;
+    top:4px;
+}
+
+.btnfb:hover{
+  color:#072256;
+  cursor:pointer;
+}
+
+.btnfb a,.btn a{
+  color:#F8F3CF;
+  text-decoration:none;
+}
+
+.btnfb a:hover{
+  color:#072256;
   cursor:pointer;
 }
 
@@ -301,6 +352,21 @@ input[type="submit"] {
 }
 
 .deliveryinfo{
+    margin-right:140px;
+}
+
+.logininfo label{
+  display: inline-block; 
+  width: 140px; 
+  text-align: right;
+  color:white;
+}
+.logininfo input {
+    text-align:center;
+    margin-bottom:5px;
+}
+
+.logininfo{
     margin-right:140px;
 }
 

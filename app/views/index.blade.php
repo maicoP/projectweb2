@@ -3,14 +3,6 @@
 	The Ball Of Friendship
 @stop
 @section("content")
-	@if(!Auth::check())
-		{{Link_to("users",'Log in')}}
-	@else
-		<p>Welkom {{Auth::user()->firstname.' '.Auth::user()->lastname}}</p>
-		{{link_to_route('cards.index','My balls of friendship')}}
-		{{link_to('logout','logout')}}
-	@endif
-	
 	<div class="headerimg">
 	{{ HTML::image('css/img/ballheader.png') }}
 	</div>
@@ -22,6 +14,15 @@
 		{{ HTML::image('css/img/chooseimage.png') }}
 		</div>
 		<div class="trigger"><a href="#" class="btn">Create</a></div>
+		<div class="hide">
+		@if(!Auth::check())
+			<div class="btn">{{Link_to('users','Log in')}}</div>
+		@else
+			<p>Welkom {{Auth::user()->firstname.' '.Auth::user()->lastname}}</p>
+			{{link_to_route('cards.index','My balls of friendship')}}
+			{{link_to('logout','logout')}}
+		@endif
+		</div>
 		<div class="create">
 		<h1>Upload from your computer</h1>
 		{{Form::open(['url' => 'image/save', 'files' => true, 'id' => 'form1'])}}
