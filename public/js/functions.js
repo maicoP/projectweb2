@@ -5,4 +5,35 @@ $(document).ready(function(){
         $(".trigger").css("display","none");  
         $(".chooseimg").css("display","block");  
     });
+    $("#editbgred").click(function(){
+    	$(".editimgbg").css("background-color","#b22222");
+    });
+    $("#editbggreen").click(function(){
+    	$(".editimgbg").css("background-color","#6FAA8C");
+    });
+    $("#editbgwhite").click(function(){
+    	$(".editimgbg").css("background-color","#FFFAFA");
+    });
+    $("#editbggold").click(function(){
+    	$(".editimgbg").css("background-color","#D4AF37");
+    });
+    $("#editbgsilver").click(function(){
+    	$(".editimgbg").css("background-color","#D3D3D3");
+    });
+
+    $("#editfontred").click(function(){
+    	$(".edittext").css("color","#B22222");
+    });
+    $("#editfontgreen").click(function(){
+    	$(".edittext").css("color","#6FAA8C");
+    });
+    $("#editfontwhite").click(function(){
+    	$(".edittext").css("color","#FFFAFA");
+    });
+    $("#editfontgold").click(function(){
+    	$(".edittext").css("color","#D4AF37");
+    });
+    $("#editfontsilver").click(function(){
+    	$(".edittext").css("color","#D3D3D3");
+    });
 })

@@ -69,6 +69,45 @@ label.myLabel input[type="file"] {
   float:right;
 }
 
+.editimg{
+  border-radius:100%;
+}
+
+.editimgbg{
+  top:317px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  width:359px;
+  height:110px;
+  /* background-image:url(img/testbg.png); */
+  background-color:#B22222;
+  position:absolute;
+}
+
+.editimgmask{
+  top:317px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  width:367px;
+  height:110px;
+  background-image:url(img/mask.png);
+  position:absolute;
+}
+
+.edittext{
+  top:340px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  width:367px;
+  height:110px;
+  position:absolute;
+  font-family: 'Dancing Script', cursive;
+  font-size:18pt;
+  color:#FFFAFA;
+}
 
 .imgpreview{
   padding-top:27px;
@@ -88,8 +127,24 @@ label.myLabel input[type="file"] {
   color:#F8F3E4;
 }
 
+.hideradio > label > input{ /* HIDE RADIO */
+  display:none;
+}
+
+.hideradio > label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+.hideradio > label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}
+
 .selectfont{
   width:100px;
+}
+
+.clear{
+  clear:both;
 }
 
 .red{
@@ -235,12 +290,18 @@ input[type="submit"] {
 /*SHIPPING*/
 
 .deliveryinfo label{
-  display: inline-block; width: 140px; text-align: right;
-  display:none;
+  display: inline-block; 
+  width: 140px; 
+  text-align: right;
+  color:white;
 }
 .deliveryinfo input[type="text"] {
     text-align:center;
     margin-bottom:5px;
+}
+
+.deliveryinfo{
+    margin-right:140px;
 }
 
 .submitinfo{
