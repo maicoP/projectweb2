@@ -37,4 +37,12 @@ $(document).ready(function(){
     $("#editfontsilver").click(function(){
     	$(".edittext").css("color","#D3D3D3");
     });
+
+    $('#message').keyup(function(event) {
+        $('.edittext').html($(this).val());
+    });
+
+    $('#textFrom').keyup(function(event) {
+        $('.editfrom').html('from '+$(this).val());
+    });
 })

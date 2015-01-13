@@ -186,23 +186,23 @@ class cardsController extends \BaseController {
 	{
 			$size = 0;
 			switch (Input::get('font')) {
-				case 'AlwaysInMyHeart.ttf':
-					$size = 24 ;
-					break;
-				case 'Anothershabby_trial.ttf':
+				case 'Poly-Regular.ttf':
 					$size = 17 ;
 					break;
-				case 'ArchitectsDaughter.ttf':
+				case 'ComingSoon.ttf':
+					$size = 16 ;
+					break;
+				case 'Courgette-Regular.ttf':
+					$size = 17 ;
+					break;
+				case 'Quicksand-Regular.ttf':
 					$size = 14 ;
 					break;
-				case 'AustieBostHappyHolly.ttf':
-					$size = 24 ;
-					break;
-				case 'CoalhandLukeTRIAL.ttf':
-					$size = 18 ;
+				case 'JustAnotherHand.ttf':
+					$size = 35 ;
 					break;			
-				case 'Pleasewritemeasong.ttf':
-					$size = 24 ;
+				case 'MarckScript-Regular.ttf':
+					$size = 21 ;
 					break;
 				default:
 					$size = 24;
