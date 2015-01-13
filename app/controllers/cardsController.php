@@ -208,10 +208,18 @@ class cardsController extends \BaseController {
 					$size = 24;
 					break;
 			}
+			//places the bg color
 			$img = Image::make('images/'.Input::get('image'));
 			$img->rectangle(0, 290, 400, 400, function ($draw) {
 			    $draw->background(Input::get('background'));
 			});
+
+			if(Input::get('extra') != 'none')
+			{
+				$img->fill('backgrounds/'.Input::get('extra'));
+			}
+
+			//places the message
 			$img->text(Input::get('message'), 200, 300, function($font) use ($size) {
 		    $font->file('fonts/'.Input::get('font'));
 		    $font->size($size);
@@ -221,6 +229,7 @@ class cardsController extends \BaseController {
 		    $font->angle(0);
 			});
 
+			//places the senders name
 			$img->text('Van '.Input::get('afzender'), 200, 330, function($font) use ($size) {
 		    $font->file('fonts/'.Input::get('font'));
 		    $font->size($size);
@@ -232,6 +241,7 @@ class cardsController extends \BaseController {
 			
 			$img->save();
 
+			//creates the rounded border
 			$filename = 'images/'.Input::get('image');
 
 

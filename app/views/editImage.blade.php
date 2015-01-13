@@ -48,6 +48,13 @@
 		<label id="editbggold">{{Form::radio('background', '#D4AF37');}}<img src="../../css/img/gold.png"></label>
 		<label id="editbgsilver">{{Form::radio('background', '#D3D3D3');}}<img src="../../css/img/silver.png"></label>
 	</div>
+	<div>
+		{{Form::radio('extra','none',true)}} none
+		{{Form::radio('extra','candy.png')}} candy
+		{{Form::radio('extra','roundedborder.png')}} roundedborder
+		{{Form::radio('extra','santa.png')}} santa
+		{{Form::radio('extra','versiering.png')}} versiering
+	</div>
 	</div>
 	<div class="editlabel clear">
 		<h1>Your Name</h1>
