@@ -3,6 +3,9 @@
 	The Ball Of Friendship
 @stop
 @section("content")
+<!-- 	<div class="ball1"></div>
+<div class="ball2"></div>
+<div class="ball3"></div> -->
 	<div class="black_overlay"></div>
 	<div class="headerimg">
 		<a href="/">{{ HTML::image('css/img/ballheader.png') }}</a>
