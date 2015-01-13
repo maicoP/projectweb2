@@ -46,6 +46,14 @@ $(document).ready(function(){
         $('.editfrom').html('from '+$(this).val());
     });
 
+    $('.extraImage input:radio').change(function(){
+        $('.editimgextra').html('');
+        if($(this).val() != 'none')
+        {
+            $('.editimgextra').append('<img src="/backgrounds/'+$(this).val()+'" alt="'+$(this).val()+'">');       
+        } 
+    });
+
      $("#loginpopup").click(function() {
             $("#popup").fadeIn( "slow" );
             $(".loginpopup").css("display","none");  

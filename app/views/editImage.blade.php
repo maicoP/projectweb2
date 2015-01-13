@@ -4,6 +4,7 @@
 @stop
 @section("content")
 	<div class="editimgbg"></div>
+	<div class='editimgextra'></div>
 	<div class="editimgmask"></div>
 	<div class="edittext">Your message</div>
 	<div class="editfrom">From </div>
@@ -48,7 +49,7 @@
 		<label id="editbggold">{{Form::radio('background', '#D4AF37');}}<img src="../../css/img/gold.png"></label>
 		<label id="editbgsilver">{{Form::radio('background', '#D3D3D3');}}<img src="../../css/img/silver.png"></label>
 	</div>
-	<div>
+	<div class="extraImage">
 		{{Form::radio('extra','none',true)}} none
 		{{Form::radio('extra','candy.png')}} candy
 		{{Form::radio('extra','roundedborder.png')}} roundedborder

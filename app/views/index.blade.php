@@ -5,7 +5,12 @@
 @section("content")
 	<div class="black_overlay"></div>
 	<div class="headerimg">
-	{{ HTML::image('css/img/ballheader.png') }}
+		<a href="/">{{ HTML::image('css/img/ballheader.png') }}</a>
+	</div>
+	<div>
+		@if(Session::has('message'))
+			<p>{{Session::get('message')}}</p>
+		@endif
 	</div>
 	<section>
 		<div class="createimg">

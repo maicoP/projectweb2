@@ -42,7 +42,7 @@ class usersController extends \BaseController {
 		{
 			$this->user->password = Hash::make($input['password']);
 			$this->user->save();
-			return Redirect::to('users')->with('message','you have successfully registered');
+			return Redirect::to('/')->with('message','you have successfully registered');
 		}
 		else
 		{
