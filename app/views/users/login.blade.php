@@ -8,17 +8,17 @@
 	</div>
 	<div>
 		@if(Session::has('message'))
-			<p>{{Session::get('message')}}</p>
+			<p class="errors">{{Session::get('message')}}</p>
 		@endif
 	</div>
 		<h1>Log in</h1>
-		<div class="logininfo">
 			{{Form::open([ 'url' => '/users/login' ])}}
 			<div>
 				@if(Session::has('error'))
-					<p>{{Session::get('error')}}</p>
+					<p class="errors">{{Session::get('error')}}</p>
 				@endif				
 			</div>
+		<div class="logininfo">
 			<div>
 				{{Form::label('email','Email:')}}
 				{{Form::email('email','',array('required' => 'required'))}}

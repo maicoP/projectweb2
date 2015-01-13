@@ -9,7 +9,7 @@
 	</div>
 	<div>
 		@if(Session::has('message'))
-			<p>{{Session::get('message')}}</p>
+			<p class="errors">{{Session::get('message')}}</p>
 		@endif
 	</div>
 	<section>
@@ -24,17 +24,17 @@
 			<div id="logincontent">
 				<div>
 					@if(Session::has('message'))
-						<p>{{Session::get('message')}}</p>
+						<p class="errors">{{Session::get('message')}}</p>
 					@endif
 				</div>
 					<h1>Log in</h1>
-					<div class="logininfo">
 						{{Form::open([ 'url' => '/users/login' ])}}
 						<div>
 							@if(Session::has('error'))
-								<p>{{Session::get('error')}}</p>
+								<p class="errors">{{Session::get('error')}}</p>
 							@endif				
 						</div>
+					<div class="logininfo">
 						<div>
 							{{Form::label('email','Email:')}}
 							{{Form::email('email','',array('required' => 'required'))}}
@@ -54,14 +54,14 @@
 			</div>
 			<div id="registercontent">
 				<h1>Register</h1>
-				<div class="logininfo">
 					{{Form::open([ 'route' => 'users.store' ])}}
-					<div>
+					<div class="errors">
 						{{$errors->first('firstname')}}
 						{{$errors->first('lastname')}}
 						{{$errors->first('email')}}
 						{{$errors->first('password')}}
 					</div>
+				<div class="logininfo">
 					<div>
 						{{Form::label('firstname','First name:')}}
 						{{Form::text('firstname','',array('required' => 'required'))}}
@@ -81,6 +81,8 @@
 				</div>
 					{{Form::submit('Register',array('class' =>'btn'))}}
 				{{Form::close()}}
+				<h1>Use Facebook</h1>
+				<div class="btnfb">{{Link_to_route('facebook.create','Facebook Log In')}}</div>
 			</div>
 		</div>
 		<div class="trigger"><a href="#" class="btn">Create</a></div>
@@ -88,9 +90,9 @@
 		@if(!Auth::check())
 			<div id="loginpopup" class="btn">Log in</div>
 		@else
-			<p>Welkom {{Auth::user()->firstname.' '.Auth::user()->lastname}}</p>
-			{{link_to_route('cards.index','My balls of friendship')}}
-			{{link_to('logout','logout')}}
+			<h1>Welcome {{Auth::user()->firstname.' '.Auth::user()->lastname}}</h1>
+			<div class="textlink">{{link_to_route('cards.index','My balls of friendship')}}</div>
+			<div><a href="logout" class="btn">Logout</a></div>
 		@endif
 		</div>
 		<div class="create">

@@ -9,6 +9,21 @@ body {
   margin:0 auto;
 }
 
+.indexlink{
+  width:111px;
+  height:70px;
+  position:absolute;
+  top:6px;
+  margin:0 auto;
+  left:0;
+  right:0;
+  background-image:url('img/s_ballheader.png');
+}
+
+.indexlink:hover{
+ background-image:url('img/s_ballheader_hover.png'); 
+}
+
 .container{
   margin:0 auto;
   width:800px;
@@ -23,9 +38,13 @@ body {
   margin:0 auto;
 }
 
+
+
 .create,.chooseimg,#popup,#registercontent{
   display:none;
 }
+
+/*LOGIN EN REGISTRATIE POPUP*/
 
 .black_overlay{
   display: none;
@@ -43,11 +62,11 @@ body {
 
 #popup{
   position:absolute;
-  top: 450px;
+  top: 440px;
   left: 0;
   right:0;
   width: 460px;
-  height: 340px;
+  height: 350px;
   padding: 16px;
   border: 10px solid #6FAA8C;
   background-color: #D13F54;
@@ -64,7 +83,18 @@ body {
   height:40px;
   margin-left:430px;
   margin-top:-8px;
+  cursor:pointer;
 }
+
+.errors{
+  text-align:center;
+  color:#B20017;
+  text-decoration:underline;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+/**/
 
 h2{
   padding-top:30px;
@@ -77,7 +107,6 @@ h1{
   color:#F8F3E4;
 }
 
-
 label.myLabel input[type="file"] {
     position: fixed;
     top: -1000px;
@@ -85,6 +114,10 @@ label.myLabel input[type="file"] {
 
 .hide,.trigger{
   display:inline-block;
+}
+
+.hide{
+  display:block;
 }
 
 .hiddenform{
@@ -117,7 +150,7 @@ label.myLabel input[type="file"] {
 }
 
 .editimgbg{
-  top:317px;
+  top:387px;
   left:0;
   right:0;
   margin:0 auto;
@@ -129,7 +162,7 @@ label.myLabel input[type="file"] {
 }
 
 .editimgmask{
-  top:317px;
+  top:387px;
   left:0;
   right:0;
   margin:0 auto;
@@ -139,21 +172,44 @@ label.myLabel input[type="file"] {
   position:absolute;
 }
 
+.editimgextra{
+  top:97px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  width:400px;
+  height:110px;
+  position:absolute;
+}
+
 .edittext{
-  top:340px;
+  top:397px;
   left:0;
   right:0;
   margin:0 auto;
   width:367px;
   height:110px;
   position:absolute;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Bad Script';
+  font-size:18pt;
+  color:#FFFAFA;
+}
+
+.editfrom{
+  top:428px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  width:367px;
+  height:110px;
+  position:absolute;
+  font-family: 'Bad Script';
   font-size:18pt;
   color:#FFFAFA;
 }
 
 .imgpreview{
-  padding-top:27px;
+  padding-top:97px;
   padding-bottom:27px;
 }
 
@@ -413,10 +469,24 @@ input[type="submit"] {
   padding-top:10px;
 }
 
+.textlink{
+  display:inline-block;
+}
+
+.textlink a{
+  text-decoration:underline;
+  color:white;
+  font-weight:bold;
+}
+.textlink a:hover{
+  text-decoration:underline;
+  color:#6FAA8C;
+  font-weight:bold;
+}
 
 /*FOOTER*/
 
-.footer{
+.center{
   text-align:center;
 }
 .fbImage{
@@ -426,4 +496,16 @@ input[type="submit"] {
 .fbImage > img{
   width: 300px;
   
+}
+
+/*balls*/
+
+.balls{
+  margin-top:100px;
+}
+
+.ball{
+  float:left;
+  width:400px;
+  height:400px;
 }

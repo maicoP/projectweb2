@@ -71,5 +71,52 @@ $(document).ready(function(){
             $("#logincontent").css("display","none");  
         });
 
-
+    $("#font1").click(function() {
+            $(".edittext").css( "font-family","Bad Script" );
+            $(".editfrom").css("font-family","Bad Script");  
+            $(".edittext").css( "font-size","18pt" );
+            $(".editfrom").css("font-size","18pt");  
+        });
+    $("#font2").click(function() {
+            $(".edittext").css( "font-family","Coming Soon" );
+            $(".editfrom").css("font-family","Coming Soon");  
+            $(".edittext").css( "font-size","14pt" );
+            $(".editfrom").css("font-size","14pt");  
+        });
+    $("#font3").click(function() {
+            $(".edittext").css( "font-family","Courgette" );
+            $(".editfrom").css("font-family","Courgette");  
+            $(".edittext").css( "font-size","18pt" );
+            $(".editfrom").css("font-size","18pt");  
+        });
+    $("#font4").click(function() {
+            $(".edittext").css( "font-family","Dancing Script" );
+            $(".editfrom").css("font-family","Dancing Script");  
+            $(".edittext").css( "font-size","16pt" );
+            $(".editfrom").css("font-size","16pt");  
+        });
+    $("#font5").click(function() {
+            $(".edittext").css( "font-family","Just Another Hand" );
+            $(".editfrom").css("font-family","Just Another Hand");  
+            $(".edittext").css( "font-size","26pt" );
+            $(".editfrom").css("font-size","26pt");  
+        });
+    $("#font6").click(function() {
+            $(".edittext").css( "font-family","Marck Script" );
+            $(".editfrom").css("font-family","Marck Script");  
+            $(".edittext").css( "font-size","16pt" );
+            $(".editfrom").css("font-size","16pt");  
+        });
+    $("#font7").click(function() {
+            $(".edittext").css( "font-family","Poly" );
+            $(".editfrom").css("font-family","Poly");  
+            $(".edittext").css( "font-size","16pt" );
+            $(".editfrom").css("font-size","16pt");  
+        });
+    $("#font8").click(function() {
+            $(".edittext").css( "font-family","Quicksand" );
+            $(".editfrom").css("font-family","Quicksand");
+            $(".edittext").css( "font-size","14pt" );
+            $(".editfrom").css("font-size","14pt");    
+        });
 })

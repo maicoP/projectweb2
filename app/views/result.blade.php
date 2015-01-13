@@ -3,6 +3,7 @@
 	The Ball Of Friendship
 @stop
 @section("content")
+	<a href="/"><div class="indexlink"></div></a>
 	<div class="imgpreview">
 		<img src="/images/{{$img}}" alt="">
 		{{Form::open(['route' =>'cards.store'])}}
