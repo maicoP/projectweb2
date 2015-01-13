@@ -23,8 +23,47 @@ body {
   margin:0 auto;
 }
 
-.create,.chooseimg{
+.create,.chooseimg,#popup,#registercontent{
   display:none;
+}
+
+.black_overlay{
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index:1001;
+  -moz-opacity: 0.8;
+  opacity:.80;
+  filter: alpha(opacity=80);
+}
+
+#popup{
+  position:absolute;
+  top: 450px;
+  left: 0;
+  right:0;
+  width: 460px;
+  height: 340px;
+  padding: 16px;
+  border: 10px solid #6FAA8C;
+  background-color: #D13F54;
+  z-index:1002;
+  overflow: auto;
+  margin:0 auto;
+  /* border-radius:10%; */
+}
+
+#closepopup{
+  position:absolute;
+  background-image:url(img/popup-close.png);
+  width:40px;
+  height:40px;
+  margin-left:430px;
+  margin-top:-8px;
 }
 
 h2{

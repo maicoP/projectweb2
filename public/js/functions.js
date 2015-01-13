@@ -45,4 +45,23 @@ $(document).ready(function(){
     $('#textFrom').keyup(function(event) {
         $('.editfrom').html('from '+$(this).val());
     });
+
+     $("#loginpopup").click(function() {
+            $("#popup").fadeIn( "slow" );
+            $(".loginpopup").css("display","none");  
+            $(".black_overlay").css("display","block");  
+        });
+    $("#closepopup").click(function() {
+            $("#popup").css( "display","none" );
+            $(".loginpopup").css("display","block");  
+            $("#registercontent").css( "display","none" );
+            $("#logincontent").css( "display","block" );
+            $(".black_overlay").css("display","none");  
+        });
+    $("#register").click(function() {
+            $("#registercontent").fadeIn( "slow" );
+            $("#logincontent").css("display","none");  
+        });
+
+
 })
