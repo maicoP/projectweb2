@@ -13,13 +13,20 @@
 		<br><h1>Destination</h1>
 
 	</section>
-	
+	<section>
+		<h2>Adresses</h2>
+		@foreach($adress as $adres)
+			<p>{{$adres->owner}}</p>
+			<p>{{$adres->streatname.' '.$adres->housnumber.' '.$adres->postcode.' '.$adres->village.' '.(isset($adres->postbus) ? $adres->postbus : '')}}</p>
+		@endforeach
+	</section>
 	<section>
 		{{Form::open(['url' => '/card/addAdress'])}}
 			<div>
 				{{Form::hidden('cardId',$card->id)}}
 			</div>
 			<div class="deliveryinfo">
+				<h2>Add another adress</h2>
 				<div>
 					{{Form::label('ontvanger',"Friend's Name")}}
 					{{Form::text('owner','',array('required' => 'required','placeholder' => ""))}}
