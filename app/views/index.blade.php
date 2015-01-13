@@ -2,10 +2,10 @@
 @section("title")
 	The Ball Of Friendship
 @stop
+@section("css")
+	{{HTML::style("css/bg.css")}}
+@stop
 @section("content")
-<!-- 	<div class="ball1"></div>
-<div class="ball2"></div>
-<div class="ball3"></div> -->
 	<div class="black_overlay"></div>
 	<div class="headerimg">
 		<a href="/">{{ HTML::image('css/img/ballheader.png') }}</a>
@@ -30,7 +30,7 @@
 						<p class="errors">{{Session::get('message')}}</p>
 					@endif
 				</div>
-					<h1>Log in</h1>
+					<h1>Log in</h1><br>
 						{{Form::open([ 'url' => '/users/login' ])}}
 						<div>
 							@if(Session::has('error'))
@@ -50,13 +50,17 @@
 						{{Form::submit('Log in',array('class' =>'btn'))}}
 
 					{{Form::close()}}			
-					<div class="orimage">
-						{{ HTML::image('css/img/or.png')}}
+					<div>
+						{{ HTML::image('css/img/s_or.png')}}
 					</div>
 					<div id="register" class="btn">Register</div>
+					<div>
+						{{ HTML::image('css/img/s_or.png')}}
+					</div>
+					<div class="btnfb">{{Link_to_route('facebook.create','Facebook')}}</div>				
 			</div>
 			<div id="registercontent">
-				<h1>Register</h1>
+				<h1>Register</h1><br>
 					{{Form::open([ 'route' => 'users.store' ])}}
 					<div class="errors">
 						{{$errors->first('firstname')}}
@@ -84,8 +88,10 @@
 				</div>
 					{{Form::submit('Register',array('class' =>'btn'))}}
 				{{Form::close()}}
-				<h1>Use Facebook</h1>
-				<div class="btnfb">{{Link_to_route('facebook.create','Facebook Log In')}}</div>
+					<div>
+						{{ HTML::image('css/img/s_or.png')}}
+					</div>
+				<div class="btnfb">{{Link_to_route('facebook.create','Facebook')}}</div>
 			</div>
 		</div>
 		<div class="trigger"><a href="#" class="btn">Create</a></div>

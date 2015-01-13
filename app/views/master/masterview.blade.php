@@ -21,6 +21,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Poly' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 	{{ HTML::script('js/functions.js')}}
+	@yield('css')
 </head>
 <body>
 	<div class="container">

@@ -1,13 +1,6 @@
 body {
   background-color:#d13f54;
-  background-image:url('img/wallpaper.jpg');
   font-family: 'Open Sans', sans-serif;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover; 
-  background-size: cover; 
 }
 
 .headerimg{
@@ -101,11 +94,11 @@ body {
 
 #popup{
   position:absolute;
-  top: 440px;
+  top: 330px;
   left: 0;
   right:0;
   width: 460px;
-  height: 350px;
+  height: 400px;
   padding: 16px;
   border: 10px solid #6FAA8C;
   background-color: #D13F54;
