@@ -12,17 +12,11 @@ $(document).ready(function(){
 		    console.log('Logged in.');
 		  }
 		  else {
-		    FB.login(function(response) {
-			   location.reload();
-			   console.log('new log in')
-			 }, {scope: 'read_friendlists,user_photos'});
+		  	FB.login(function(response) {
+			   console.log(response);
+			 }, {scope:'user_photos', 
+   				return_scopes: true});
 		  }
-		  FB.api('/me', function(me){
-	       if (me.id) {
-		            var facebook_userid = me.id;
-		            console.log(facebook_userid);
-		        }
-		    });
 		  FB.api(
 			    "/me/photos",
 			    function (response) {
