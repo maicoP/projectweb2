@@ -3,6 +3,7 @@
 	The Ball Of Friendship
 @stop
 @section("content")
+	<div class="black_overlay"></div>
 	<div class="headerimg">
 	{{ HTML::image('css/img/ballheader.png') }}
 	</div>
@@ -13,10 +14,74 @@
 		<div class="chooseimg">
 		{{ HTML::image('css/img/chooseimage.png') }}
 		</div>
+		<div id="popup">
+			<div id="closepopup"></div>
+			<div id="logincontent">
+				<div>
+					@if(Session::has('message'))
+						<p>{{Session::get('message')}}</p>
+					@endif
+				</div>
+					<h1>Log in</h1>
+					<div class="logininfo">
+						{{Form::open([ 'url' => '/users/login' ])}}
+						<div>
+							@if(Session::has('error'))
+								<p>{{Session::get('error')}}</p>
+							@endif				
+						</div>
+						<div>
+							{{Form::label('email','Email:')}}
+							{{Form::email('email','',array('required' => 'required'))}}
+						</div>
+						<div>
+							{{Form::label('password','Password:')}}
+							{{Form::password('password','',array('required' => 'required'))}}
+						</div>
+					</div>
+						{{Form::submit('Log in',array('class' =>'btn'))}}
+
+					{{Form::close()}}			
+					<div class="orimage">
+						{{ HTML::image('css/img/or.png')}}
+					</div>
+					<div id="register" class="btn">Register</div>
+			</div>
+			<div id="registercontent">
+				<h1>Register</h1>
+				<div class="logininfo">
+					{{Form::open([ 'route' => 'users.store' ])}}
+					<div>
+						{{$errors->first('firstname')}}
+						{{$errors->first('lastname')}}
+						{{$errors->first('email')}}
+						{{$errors->first('password')}}
+					</div>
+					<div>
+						{{Form::label('firstname','First name:')}}
+						{{Form::text('firstname','',array('required' => 'required'))}}
+					</div>
+					<div>
+						{{Form::label('lastname','Last name:')}}
+						{{Form::text('lastname','',array('required' => 'required'))}}
+					</div>
+					<div>
+						{{Form::label('email','Email:')}}
+						{{Form::email('email','',array('required' => 'required'))}}
+					</div>
+					<div>
+						{{Form::label('password','Password:')}}
+						{{Form::password('password','',array('required' => 'required'))}}
+					</div>
+				</div>
+					{{Form::submit('Register',array('class' =>'btn'))}}
+				{{Form::close()}}
+			</div>
+		</div>
 		<div class="trigger"><a href="#" class="btn">Create</a></div>
 		<div class="hide">
 		@if(!Auth::check())
-			<div class="btn">{{Link_to('users','Log in')}}</div>
+			<div id="loginpopup" class="btn">Log in</div>
 		@else
 			<p>Welkom {{Auth::user()->firstname.' '.Auth::user()->lastname}}</p>
 			{{link_to_route('cards.index','My balls of friendship')}}
