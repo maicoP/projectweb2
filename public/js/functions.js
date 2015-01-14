@@ -119,4 +119,20 @@ $(document).ready(function(){
             $(".edittext").css( "font-size","14px" );
             $(".editfrom").css("font-size","14px");    
         });
+
+    if($(".errorsLogin").children().length > 0)
+    {
+        $("#popup").fadeIn( "slow" );
+        $(".loginpopup").css("display","none");  
+        $(".black_overlay").css("display","block"); 
+    }
+
+    if($(".errorsRegistratie").children().length > 0)
+    {
+        $("#popup").fadeIn( "slow" );
+        $(".loginpopup").css("display","none");  
+        $(".black_overlay").css("display","block"); 
+        $("#registercontent").fadeIn( "slow" );
+        $("#logincontent").css("display","none");  
+    }
 })

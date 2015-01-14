@@ -25,14 +25,9 @@
 		<div id="popup">
 			<div id="closepopup"></div>
 			<div id="logincontent">
-				<div>
-					@if(Session::has('message'))
-						<p class="errors">{{Session::get('message')}}</p>
-					@endif
-				</div>
 					<h1>Log in</h1><br>
 						{{Form::open([ 'url' => '/users/login' ])}}
-						<div>
+						<div class='errorsLogin'>
 							@if(Session::has('error'))
 								<p class="errors">{{Session::get('error')}}</p>
 							@endif				
@@ -62,11 +57,15 @@
 			<div id="registercontent">
 				<h1>Register</h1><br>
 					{{Form::open([ 'route' => 'users.store' ])}}
-					<div class="errors">
-						{{$errors->first('firstname')}}
-						{{$errors->first('lastname')}}
-						{{$errors->first('email')}}
-						{{$errors->first('password')}}
+					<div class="errors errorsRegistratie">
+						@if(!$errors->isEmpty())
+							<p>
+								{{$errors->first('firstname')}}
+								{{$errors->first('lastname')}}
+								{{$errors->first('email')}}
+								{{$errors->first('password')}}
+							</p>
+						@endif
 					</div>
 				<div class="logininfo">
 					<div>
