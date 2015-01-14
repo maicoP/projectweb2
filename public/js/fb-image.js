@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	nextpage = '';
+	previouspage = '';
 	//images van facebook ophalen
 	window.fbAsyncInit = function() {
 	FB.init({
@@ -21,10 +23,7 @@ $(document).ready(function(){
 			    "/me/photos",
 			    function (response) {
 			      if (response && !response.error) {
-			      	$.each(response.data,function(i,result){
-			      		$('#facebookImages').append("<div class='fbImage'><img src="+result.images[1].source+" alt='facebook image'></div>")
-			      	});
-			      	console.log(response);
+			      	readResults(response);
 			      }
 			      else{
 			      	console.log(response.error);
@@ -37,6 +36,28 @@ $(document).ready(function(){
 			$('#hiddenField').val(url);
 			$('form').submit();
 		});
+		$('#next').click(function(){
+			$.ajax({
+				url: nextpage,
+				dataType: "jsonp",
+				success: function(json){
+	                readResults(json);
+				}
+			});
+		});
+		$('#previous').hide();
+		$('#previous').click(function(){
+			if(previouspage !== '')
+			{
+				$.ajax({
+					url: previouspage,
+					dataType: "jsonp",
+					success: function(json){
+		                readResults(json);
+					}
+				});
+			}
+		});
 	};
 
 	(function(d, s, id){
@@ -46,5 +67,22 @@ $(document).ready(function(){
 	 js.src = "//connect.facebook.net/en_US/sdk.js";
 	 fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
+
+	function readResults(response)
+	{
+		$('#facebookImages').html('');
+		$.each(response.data,function(i,result){
+      		$('#facebookImages').append("<div class='fbImage'><img src="+result.images[1].source+" alt='facebook image'></div>")
+      	});
+      	nextpage = response.paging.next;
+      	if(response.paging.previous)
+      	{
+      		previouspage = response.paging.previous;
+      		$('#previous').show();
+      	}
+      	else{
+      		$('#previous').hide();
+      	}
+	}
 })
 

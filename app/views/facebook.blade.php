@@ -13,6 +13,7 @@
 			<div id='facebookImages'>
 				
 			</div>
+			<div id='previous'>Previous</div><div id='next'>Next</div>
 		{{Form::close()}}
 	</div>
 
