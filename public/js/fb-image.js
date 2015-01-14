@@ -6,6 +6,8 @@ $(document).ready(function(){
 	window.fbAsyncInit = function() {
 	FB.init({
 	  appId      : '299522950243822',
+	  //maico: 299522950243822
+	  //matthias: 1593930580838839
 	  xfbml      : true,
 	  version    : 'v2.1'
 	});
@@ -72,7 +74,7 @@ $(document).ready(function(){
 	{
 		$('#facebookImages').html('');
 		$.each(response.data,function(i,result){
-      		$('#facebookImages').append("<div class='fbImage'><img src="+result.images[1].source+" alt='facebook image'></div>")
+      		$('#facebookImages').append("<div class='fbImage effect8'><img src="+result.images[1].source+" alt='Loading Facebook image'></div>")
       	});
       	nextpage = response.paging.next;
       	if(response.paging.previous)
