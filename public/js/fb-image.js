@@ -15,7 +15,7 @@ $(document).ready(function(){
 		  }
 		  else {
 		  	FB.login(function(response) {
-			   console.log(response);
+			   window.location.reload();
 			 }, {scope:'user_photos', 
    				return_scopes: true});
 		  }
@@ -32,7 +32,7 @@ $(document).ready(function(){
 			);
 		});
 		$(document.body).on('click', '.fbImage' ,function(){
-			url = $(this).children()[0].currentSrc;
+			url = $(this).children()[0].src;
 			$('#hiddenField').val(url);
 			$('form').submit();
 		});
