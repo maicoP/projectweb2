@@ -43,7 +43,7 @@ $(document).ready(function(){
     });
 
     $('#textFrom').keyup(function(event) {
-        $('.editfrom').html('from '+$(this).val());
+        $('.editfrom').html('From '+$(this).val());
     });
 
     $('.extraImage input:radio').change(function(){

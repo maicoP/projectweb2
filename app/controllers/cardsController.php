@@ -230,7 +230,7 @@ class cardsController extends \BaseController {
 			});
 
 			//places the senders name
-			$img->text('Van '.Input::get('afzender'), 200, 330, function($font) use ($size) {
+			$img->text('From '.Input::get('afzender'), 200, 330, function($font) use ($size) {
 		    $font->file('fonts/'.Input::get('font'));
 		    $font->size($size);
 		    $font->color(Input::get('color'));
