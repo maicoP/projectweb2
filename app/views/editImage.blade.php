@@ -45,7 +45,7 @@
 		<div class="hideradio editlabel right fixradiosquare">
 			<h1>Background Color</h1>
 			<label id="editbgred">{{Form::radio('background', '#b22222',true);}}<img src="../../css/img/red.png"></label>
-			<label id="editbggreen">{{Form::radio('background', '#b22222');}}<img src="../../css/img/green.png"></label>
+			<label id="editbggreen">{{Form::radio('background', '#6FAA8C');}}<img src="../../css/img/green.png"></label>
 			<label id="editbgwhite">{{Form::radio('background', '#fffafa');}}<img src="../../css/img/white.png"></label>
 			<label id="editbggold">{{Form::radio('background', '#D4AF37');}}<img src="../../css/img/gold.png"></label>
 			<label id="editbgsilver">{{Form::radio('background', '#D3D3D3');}}<img src="../../css/img/silver.png"></label>
