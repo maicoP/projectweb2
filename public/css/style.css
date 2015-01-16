@@ -402,14 +402,19 @@ input[type="submit"] {
 
 .textlink{
   display:inline-block;
+  text-decoration:underline;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .textlink a{
   text-decoration:underline;
   color:white;
   font-weight:bold;
+  cursor:pointer;
 }
-.textlink a:hover{
+.textlink a:hover,.textlink:hover{
   text-decoration:underline;
   color:#6FAA8C;
   font-weight:bold;
