@@ -15,7 +15,7 @@
 		<h1>Previous destinations</h1>
 		@foreach($adress as $adres)
 			<p>{{$adres->owner}}</p>
-			<p>{{$adres->streatname.' '.$adres->housnumber.' '.$adres->postcode.' '.$adres->village.' '.(isset($adres->postbus) ? $adres->postbus : '')}}</p>
+			<p>{{$adres->streatname.' '.$adres->housnumber.' '.$adres->postcode.' '.$adres->village.' '.($adres->postbus != '' ? 'Postbus: '.$adres->postbus : '')}}</p>
 		@endforeach
 	</section>
 	<section><br>
