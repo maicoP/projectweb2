@@ -115,7 +115,7 @@
 		<label class="myLabel">
 					{{Form::label(' ')}}
 					{{Form::File('image', ['onchange' => 'this.form.submit();'])}}
-					<span>{{ HTML::image('css/img/pclogo.png') }}</span>
+					<span class="pointer">{{ HTML::image('css/img/pclogo.png') }}</span>
 		</label>
 
 		</div>

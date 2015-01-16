@@ -24,18 +24,23 @@ $(document).ready(function(){
 
     $("#editfontred").click(function(){
     	$(".edittext").css("color","#B22222");
+        $(".editfrom").css("color","#B22222");
     });
     $("#editfontgreen").click(function(){
     	$(".edittext").css("color","#6FAA8C");
+        $(".editfrom").css("color","#6FAA8C");
     });
     $("#editfontwhite").click(function(){
     	$(".edittext").css("color","#FFFAFA");
+        $(".editfrom").css("color","#FFFAFA");
     });
     $("#editfontgold").click(function(){
     	$(".edittext").css("color","#D4AF37");
+        $(".editfrom").css("color","#D4AF37");
     });
     $("#editfontsilver").click(function(){
     	$(".edittext").css("color","#D3D3D3");
+        $(".editfrom").css("color","#D3D3D3");
     });
 
     $('#message').keyup(function(event) {

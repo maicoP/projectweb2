@@ -36,6 +36,10 @@ h1{
   float:right;
 }
 
+.pointer{
+  cursor:pointer;
+}
+
 /*HOMEPAGE*/
 
 .headerimg{
