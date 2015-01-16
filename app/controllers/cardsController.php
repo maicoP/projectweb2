@@ -172,16 +172,6 @@ class cardsController extends \BaseController {
 		
 	}
 
-	public function returnSavedCards(){
-		if(Auth::check())
-		{
-			
-		}
-		else{
-			return Redirect::to('/');
-		}
-	}
-
 	public function editTempImage()
 	{
 			$size = 0;

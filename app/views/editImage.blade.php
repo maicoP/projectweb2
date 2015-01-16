@@ -37,7 +37,7 @@
 		<div class="hideradio editlabel left fixradiosquare">
 			<h1>Font Color</h1>
 			<label id="editfontred">{{Form::radio('color', '#b22222');}}<img src="../../css/img/red.png"></label>
-			<label id="editfontgreen">{{Form::radio('color', '#b22222');}}<img src="../../css/img/green.png"></label>
+			<label id="editfontgreen">{{Form::radio('color', '#6FAA8C');}}<img src="../../css/img/green.png"></label>
 			<label id="editfontwhite">{{Form::radio('color', '#fffafa', true);}}<img src="../../css/img/white.png"></label>
 			<label id="editfontgold">{{Form::radio('color', '#D4AF37');}}<img src="../../css/img/gold.png"></label>
 			<label id="editfontsilver">{{Form::radio('color', '#D3D3D3');}}<img src="../../css/img/silver.png"></label>
