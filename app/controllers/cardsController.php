@@ -49,7 +49,7 @@ class cardsController extends \BaseController {
 
 		$this->card->saveCardAdress($cardId,$adresId);
 
-		return View::make('confirmation',['reciever' =>Input::get('reciever'),'image' => Input::get('image')]);
+		return View::make('confirmation',['reciever' =>Input::get('owner'),'image' => Input::get('image')]);
 	}
 
 

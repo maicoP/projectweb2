@@ -13,6 +13,7 @@ Route::get('/',function(){
 });
 Route::get('/login/fb/callback','facebookController@store');
 Route::get('/logout','usersController@logout');
+Route::get('facebook/create/{image}/{reciever}','facebookController@create');
 Route::post('/card/save','cardsController@saveCard');
 Route::post('/users/login','usersController@login');
 Route::post('/card/addAdress','cardsController@addAdress');

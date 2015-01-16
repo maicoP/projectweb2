@@ -33,13 +33,18 @@ class facebookController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($image,$reciever)
 	{
 		$facebook = new Facebook(Config::get('facebook'));
 	    $params = array(
 	        'redirect_uri' => url('/login/fb/callback'),
 	        'scope' => 'email',
 	    );
+	    if(($image != 'no') && ($reciever != 'no'))
+	    {
+	    	Session::put('image', $image);
+	   		Session::put('reciever', $reciever);
+	    }
 	    return Redirect::to($facebook->getLoginUrl($params));
 	}
 
@@ -51,6 +56,7 @@ class facebookController extends \BaseController {
 	 */
 	public function store()
 	{
+
 		$code = Input::get('code');
 		if (strlen($code) == 0) return Redirect::to('/')->with('message', 'There was an error communicating with Facebook');
 
@@ -83,7 +89,14 @@ class facebookController extends \BaseController {
 		$user = $profile->user;
 
 		Auth::login($user);
-
+		if(Session::has('image'))
+		{
+			$image = Session::get('image');
+			$reciever = Session::get('reciever');
+			Session::forget('image');
+			Session::forget('reciever');
+			return View::make('confirmation',['reciever' =>$reciever,'image' => $image]);
+		}
 	    return Redirect::to('/');
 
 	}

@@ -54,7 +54,7 @@
 				<div>
 					{{ HTML::image('css/img/s_or.png')}}
 				</div>
-				<div class="btnfb">{{Link_to_route('facebook.create','Facebook')}}</div>				
+				<div class="btnfb">{{Link_to('facebook/create/'.$image.'/'.$reciever,'Facebook')}}</div>				
 		</div>
 		<div id="registercontent">
 			<h1>Register</h1><br>
@@ -94,7 +94,7 @@
 				<div>
 					{{ HTML::image('css/img/s_or.png')}}
 				</div>
-			<div class="btnfb">{{Link_to_route('facebook.create','Facebook')}}</div>
+			<div class="btnfb">{{Link_to('facebook/create/'.$image.'/'.$reciever,'Facebook')}}</div>
 		</div>
 	</div>
 @stop
