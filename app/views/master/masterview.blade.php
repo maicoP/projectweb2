@@ -9,6 +9,7 @@
 	<!-- google fonts -->
 	{{HTML::style("css/reset.css")}}
 	{{HTML::style("css/style.css")}}
+	{{HTML::style("css/hover.css")}}
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800' rel='stylesheet' type='text/css'>
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

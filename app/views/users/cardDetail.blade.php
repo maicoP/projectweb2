@@ -10,23 +10,21 @@
 		<div>
 			<img src="/images/{{$card->image}}" alt="ball of friendship">
 		</div>
-		<br><h1>Destination</h1>
-
 	</section>
-	<section>
-		<h2>Adresses</h2>
+	<section><br>
+		<h1>Previous destinations</h1>
 		@foreach($adress as $adres)
 			<p>{{$adres->owner}}</p>
 			<p>{{$adres->streatname.' '.$adres->housnumber.' '.$adres->postcode.' '.$adres->village.' '.(isset($adres->postbus) ? $adres->postbus : '')}}</p>
 		@endforeach
 	</section>
-	<section>
+	<section><br>
+		<h1>Add a new destination</h1>
 		{{Form::open(['url' => '/card/addAdress'])}}
 			<div>
 				{{Form::hidden('cardId',$card->id)}}
 			</div>
 			<div class="deliveryinfo">
-				<h2>Add another adress</h2>
 				<div>
 					{{Form::label('ontvanger',"Friend's Name")}}
 					{{Form::text('owner','',array('required' => 'required','placeholder' => ""))}}

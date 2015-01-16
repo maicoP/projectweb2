@@ -10,7 +10,7 @@
 	
 	<section>
 		@forelse($cards as $card)
-		<div class="ball">
+		<div class="ball hvr-grow-rotate">
 			<a href="cards/{{$card->id}}">
 				<img width="340" height="340" src="images/{{$card->image}}" alt="ball of friendship">
 			</a>		
