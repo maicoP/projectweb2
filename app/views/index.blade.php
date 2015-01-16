@@ -12,7 +12,7 @@
 	</div>
 	<div>
 		@if(Session::has('message'))
-			<p class="errors">{{Session::get('message')}}</p>
+			<p class="success">{{Session::get('message')}}</p>
 		@endif
 	</div>
 	<section>

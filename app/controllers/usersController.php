@@ -51,7 +51,7 @@ class usersController extends \BaseController {
 				}
 				else
 				{
-					return Redirect::to('/')->with('message','you have successfully registered');
+					return Redirect::to('/')->with('message','You have successfully registered!');
 				}
 			}
 			
@@ -132,7 +132,7 @@ class usersController extends \BaseController {
 		{
 			return View::make('confirmation',['reciever' =>$input['reciever'],'image' => $input['image']])->with('error','wrong email or password');
 		}
-		return Redirect::back()->withInput()->with('error','wrong email or password');
+		return Redirect::back()->withInput()->with('error','Sorry! Your email or password was incorrect.');
 	}
 
 	public function loginSuccesfull($input){

@@ -140,7 +140,16 @@ label.myLabel input[type="file"] {
   color:#B20017;
   text-decoration:underline;
   font-weight:bold;
-  margin-bottom:10px;
+  margin-bottom:20px;
+}
+
+.success{
+  text-align:center;
+  color:#6FAA8C;
+  text-decoration:underline;
+  font-weight:bold;
+  margin-bottom: -31px;
+  margin-top: 15px;
 }
 
 /*EDIT PAGE*/
